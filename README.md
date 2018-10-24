@@ -27,3 +27,5 @@ As.POSIXct help: https://www.rdocumentation.org/packages/base/versions/3.5.1/top
 Expected Products: 
 
 Questions for instructor:
+
+Acknowledgements: Luis Andres Guillen 
