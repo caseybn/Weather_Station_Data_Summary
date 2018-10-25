@@ -12,11 +12,11 @@ Water balance models account for both factors of supply and demand by incorporat
   b. Output visuals to display changes in weather conditions throughout the growing season
 
 # 2) Data Sources:
-  a. Data is collected directly from the site and located within this repo.
-  b. Includes temperature (°C), relative humidity (%), precipitation (mm), solar irradiance (W/m^2), wind speed (m/s).
-  c. Data is in .csv format with one file containing all the season's data.
-    -Temperature and relative humidity are stored in the same file titled “Air”
-	d. All data was collected between 13 July 2018 through 22 September 2018
+a. Data is collected directly from the site and located within this repo.
+b. Includes temperature (°C), relative humidity (%), precipitation (mm), solar irradiance (W/m^2), wind speed (m/s).
+c. Data is in .csv format with one file containing all the season's data.
+-Temperature and relative humidity are stored in the same file titled “Air”
+d. All data was collected between 13 July 2018 through 22 September 2018
 
 # 3) Implementation
 I have been exploring different options for summarizing my data. The possibilities include a mix of the dplyr and ggplot packages in R and the mutate function to create a new column to populate with the summarize function. Another options is possibly using the zoo package's aggregate function. HydroTSM package won't be used because I am attempting to develop a script that can be used to summarize all the different data types and the package seems geared at hydrology data over extended periods of time.
