@@ -28,7 +28,9 @@ I have learned it is necessary to use as.POSIXct() for dealing with date and tim
 
 #### Resources utilized:
 Zoo package help: 
+
 [Overall Zoo Help Doc](https://cran.r-project.org/web/packages/zoo/zoo.pd)
+
 [Zoo.aggregate Help](https://www.rdocumentation.org/packages/zoo/versions/1.7-9/topics/aggregate.zoo)
 
 As.POSIXct help: 
