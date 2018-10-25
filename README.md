@@ -28,11 +28,11 @@ I have learned it is necessary to use as.POSIXct() for dealing with date and tim
 
 #### Resources utilized:
 Zoo package help: 
-[Overall Zoo Help Doc] (https://cran.r-project.org/web/packages/zoo/zoo.pd)
-[Zoo.aggregate Help] (https://www.rdocumentation.org/packages/zoo/versions/1.7-9/topics/aggregate.zoo)
+[Overall Zoo Help Doc](https://cran.r-project.org/web/packages/zoo/zoo.pd)
+[Zoo.aggregate Help](https://www.rdocumentation.org/packages/zoo/versions/1.7-9/topics/aggregate.zoo)
 
 As.POSIXct help: 
-[POSIXct Data/Time Formatting] (https://www.rdocumentation.org/packages/base/versions/3.5.1/topics/as.POSIX*)
+[POSIXct Data/Time Formatting](https://www.rdocumentation.org/packages/base/versions/3.5.1/topics/as.POSIX*)
 
 ## Expected Products:
 I expect that at the end of this project I will have a .csv file with the daily and bi-weekly sums for precipitation and solar irradiance as well as files containing the daily means for temperature, relative humidity, and wind speed.  
