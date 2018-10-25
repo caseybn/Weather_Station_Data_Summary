@@ -46,7 +46,7 @@ library(zoo)
 library(ggplot2)
 library(dplyr)
 
-# setting the working directory.
+#setting the working directory.
 setwd("N:/Weather_Station")
 
 #reads in Precip, excludes columns with datalogger info but no data
