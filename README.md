@@ -27,13 +27,13 @@ I have been exploring different options for summarizing my data. The possibiliti
 I have learned it is necessary to use as.POSIXct() for dealing with date and time formatting as it accounts for time, date, and timezone. This step is reflected in the script as it currently stands
 
 #### Resources utilized:
-Zoo package help: 
+##### Zoo package help: 
 
 [Overall Zoo Help Doc](https://cran.r-project.org/web/packages/zoo/zoo.pd)
 
 [Zoo.aggregate Help](https://www.rdocumentation.org/packages/zoo/versions/1.7-9/topics/aggregate.zoo)
 
-As.POSIXct help: 
+##### As.POSIXct help: 
 
 [POSIXct Data/Time Formatting](https://www.rdocumentation.org/packages/base/versions/3.5.1/topics/as.POSIX*)
 
