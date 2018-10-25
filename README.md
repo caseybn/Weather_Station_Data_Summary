@@ -21,7 +21,7 @@ c. Data is in .csv format with one file containing all the season's data.
 
 d. All data was collected between 13 July 2018 through 22 September 2018
 
-# 3) Implementation
+# 3) Implementation:
 I have been exploring different options for summarizing my data. The possibilities include a mix of the dplyr and ggplot packages in R and the mutate function to create a new column to populate with the summarize function. Another options is possibly using the zoo package's aggregate function. HydroTSM package won't be used because I am attempting to develop a script that can be used to summarize all the different data types and the package seems geared at hydrology data over extended periods of time.
 
 I have learned it is necessary to use as.POSIXct() for dealing with date and time formatting as it accounts for time, date, and timezone. This step is reflected in the script as it currently stands
@@ -40,7 +40,7 @@ Are there other packages and functions that I should be exploring? I know you me
 
 When we were working in the shell we used variables and then would bash with the desired input. I would like to do that with my code if possible. So that would be bashing through R? This part is a little unclear for me still.
 
-# CODE To-Date (10-25-2018)
+# CODE To-Date (10-25-2018):
 #Weather Station Data summarization
 rm(list=ls()) #clears environment of previous work
 
