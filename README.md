@@ -1,10 +1,10 @@
 # Weather_Station_Data_Summary
 
 # Description of overall project:
-	For my thesis I am attempting to include species specific impacts on water balance modeling by identifying species differences in water management strategies at the crown level. Leveraging an existing 50-100% throughfall exclusion (Tfe) experiment, as well as strategically placed time lapse cameras and light sensors, I will measure species specific crown architecture and light attenuation to develop crown-integrated solar radiation terms for water balance modeling. My hope is to improve water balance modeling accuracy at Elizabeth Wood’s, located south of Morgantown, WV, by incorporating measured light attenuation and solar radiation terms relative to individual species to into a dynamic water balance model method.  
+For my thesis I am attempting to include species specific impacts on water balance modeling by identifying species differences in water management strategies at the crown level. Leveraging an existing 50-100% throughfall exclusion (Tfe) experiment, as well as strategically placed time lapse cameras and light sensors, I will measure species specific crown architecture and light attenuation to develop crown-integrated solar radiation terms for water balance modeling. My hope is to improve water balance modeling accuracy at Elizabeth Wood’s, located south of Morgantown, WV, by incorporating measured light attenuation and solar radiation terms relative to individual species to into a dynamic water balance model method.  
 
 # Purpose of this script:
-	Water balance models account for both factors of supply and demand by incorporating climatic, topographic, and edaphic variables. To collect relevant climatic data, I have set up a weather station in an open field north of my study plots South of Morgantown, WV. This station utilizes LOGGERNET technology to store data for download including precipitation, temperature, wind speed, relative humidity, and solar radiation. The output format is comma-separated values.
+Water balance models account for both factors of supply and demand by incorporating climatic, topographic, and edaphic variables. To collect relevant climatic data, I have set up a weather station in an open field north of my study plots South of Morgantown, WV. This station utilizes LOGGERNET technology to store data for download including precipitation, temperature, wind speed, relative humidity, and solar radiation. The output format is comma-separated values.
 
 # 1) Objectives:
   a. To automate the summarization process of data collected daily at Elizabeth Woods in preparation for use in a water balance model.    
@@ -19,9 +19,9 @@
 	d. All data was collected between 13 July 2018 through 22 September 2018
 
 # 3) Implementation
-	I have been exploring different options for summarizing my data. The possibilities include a mix of the dplyr and ggplot packages in R and the mutate function to create a new column to populate with the summarize function. Another options is possibly using the zoo package's aggregate function. HydroTSM package won't be used because I am attempting to develop a script that can be used to summarize all the different data types and the package seems geared at hydrology data over extended periods of time.
+I have been exploring different options for summarizing my data. The possibilities include a mix of the dplyr and ggplot packages in R and the mutate function to create a new column to populate with the summarize function. Another options is possibly using the zoo package's aggregate function. HydroTSM package won't be used because I am attempting to develop a script that can be used to summarize all the different data types and the package seems geared at hydrology data over extended periods of time.
 
-	I have learned it is necessary to use as.POSIXct() for dealing with date and time formatting as it accounts for time, date, and timezone. This step is reflected in the script as it currently stands
+I have learned it is necessary to use as.POSIXct() for dealing with date and time formatting as it accounts for time, date, and timezone. This step is reflected in the script as it currently stands
 
 Resources utilized:
 Zoo package help: https://cran.r-project.org/web/packages/zoo/zoo.pd
@@ -30,7 +30,7 @@ https://www.rdocumentation.org/packages/zoo/versions/1.7-9/topics/aggregate.zoo
 As.POSIXct help: https://www.rdocumentation.org/packages/base/versions/3.5.1/topics/as.POSIX*
 
 # Expected Products:
-	I expect that at the end of this project I will have a .csv file with the daily and bi-weekly sums for precipitation and solar irradiance as well as files containing the daily means for temperature, relative humidity, and wind speed.  
+I expect that at the end of this project I will have a .csv file with the daily and bi-weekly sums for precipitation and solar irradiance as well as files containing the daily means for temperature, relative humidity, and wind speed.  
 
 # Questions for instructor:
 Are there other packages and functions that I should be exploring? I know you mentioned something about tidyr, but that isn't used for aggregation. Perhaps I can use it to tidy the data prior to my other work?
