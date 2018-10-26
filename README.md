@@ -51,6 +51,7 @@ When we were working in the shell we used variables and then would bash with the
 rm(list=ls()) #clears environment of previous work
 
 #activate necessary libraries
+
 library(zoo)
 library(ggplot2)
 library(dplyr)
