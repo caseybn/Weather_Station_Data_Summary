@@ -83,4 +83,4 @@ td_precip<-as.POSIXct(Precip$TOA5,format = "%Y-%m-%d %H:%M:%S",tz="EST")
 precip1<-as.numeric(as.vector(Precip$CR6))
 
 ### Acknowledgements: 
-Luis Andres Guillen and Nanette Raczka my co-workesr on the Elizabeth Woods TfE experiment as well as our advisors Dr. Brenden McNeil, Dr. Nicolas Zegre, and Dr. Edward Brzostek. Also, Dr. Amy Hessl for her un-paralleled patience in this learning process.    
+Luis Andres Guillen and Nanette Raczka, my co-workesr on the Elizabeth Woods TfE experiment, as well as our advisors Dr. Brenden McNeil, Dr. Nicolas Zegre, and Dr. Edward Brzostek. Also, Dr. Amy Hessl for her un-paralleled patience in this learning process.    
