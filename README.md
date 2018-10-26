@@ -47,6 +47,7 @@ When we were working in the shell we used variables and then would bash with the
 
 ## CODE To-Date (10-25-2018):
 #Weather Station Data summarization
+
 rm(list=ls()) #clears environment of previous work
 
 #activate necessary libraries
@@ -55,22 +56,29 @@ library(ggplot2)
 library(dplyr)
 
 #setting the working directory.
+
 setwd("N:/Weather_Station")
 
 #reads in Precip, excludes columns with datalogger info but no data
+
 Precip<-read.csv("Precip_9-22-18_2018.csv")[,1:3]
 
 #checking for other columns and rows to be excluded
+
 head(Precip)
+
 nrow(Precip)
 
 #excludes rows with datalogger information
+
 Precip <- Precip[4:10212,]
 
 #creates POSIXct object with the dates and time in EST.
+
 td_precip<-as.POSIXct(Precip$TOA5,format = "%Y-%m-%d %H:%M:%S",tz="EST")
 
 #create the vector with the precipitation values
+
 precip1<-as.numeric(as.vector(Precip$CR6))
 
 ### Acknowledgements: 
