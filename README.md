@@ -9,7 +9,10 @@ Water balance models account for both factors of supply and demand by incorporat
 ### 1) Objectives:
 a. To automate the summarization process of data collected daily at Elizabeth Woods in preparation for use in a water balance model. Summaries necessary include daily averages and daily sums. Since my water balance model is run on a bi-weekly timestep it will also be necessary to have bi-weekly sums and averages.  
 
+I believe this will only take a couple lines of code in base R.  See https://stackoverflow.com/questions/37575785/r-group-by-date-and-summarize-the-values
+
 b. Output visuals to display changes in weather conditions throughout the growing season
+This is interesting and has the potential for an R-Shiny.  Given that the data summary part will be straightforward, you need to think about how to expand this project (for class). R-Shiny is one way to share your results and allow others to explore your data online.  Another option would be to generalize the problem 1a above.  For example, what if you wrote a function that takes the air csv and given a series of arguments, summarizes it for any time step and any variable then returns a table and a figure for up to date data?  This could also be an R-Shiny.
 
 ### 2) Data Sources:
 a. Data is collected directly from the site and located within this repo.
@@ -24,7 +27,7 @@ d. All data was collected between 13 July 2018 through 22 September 2018
 ### 3) Implementation:
 I have been exploring different options for summarizing my data. The possibilities include a mix of the dplyr and ggplot packages in R and the mutate function to create a new column to populate with the summarize function. Another options is possibly using the zoo package's aggregate function. HydroTSM package won't be used because I am attempting to develop a script that can be used to summarize all the different data types and the package seems geared at hydrology data over extended periods of time.
 
-I have learned it is necessary to use as.POSIXct() for dealing with date and time formatting as it accounts for time, date, and timezone. This step is reflected in the script as it currently stands
+I have learned it is necessary to use as.POSIXct() for dealing with date and time formatting as it accounts for time, date, and timezone. This step is reflected in the script as it currently stands.  
 
 #### Resources utilized:
 
