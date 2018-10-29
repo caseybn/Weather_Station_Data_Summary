@@ -9,10 +9,10 @@ Water balance models account for both factors of supply and demand by incorporat
 ### 1) Objectives:
 a. To automate the summarization process of data collected daily at Elizabeth Woods in preparation for use in a water balance model. Summaries necessary include daily averages and daily sums. Since my water balance model is run on a bi-weekly timestep it will also be necessary to have bi-weekly sums and averages.  
 
-I believe this will only take a couple lines of code in base R.  See https://stackoverflow.com/questions/37575785/r-group-by-date-and-summarize-the-values
+_I believe this will only take a couple lines of code in base R.  See https://stackoverflow.com/questions/37575785/r-group-by-date-and-summarize-the-values_
 
 b. Output visuals to display changes in weather conditions throughout the growing season
-This is interesting and has the potential for an R-Shiny.  Given that the data summary part will be straightforward, you need to think about how to expand this project (for class). R-Shiny is one way to share your results and allow others to explore your data online.  Another option would be to generalize the problem 1a above.  For example, what if you wrote a function that takes the air csv and given a series of arguments, summarizes it for any time step and any variable then returns a table and a figure for up to date data?  This could also be an R-Shiny.
+_This is interesting and has the potential for an R-Shiny.  Given that the data summary part will be straightforward, you need to think about how to expand this project (for class). R-Shiny is one way to share your results and allow others to explore your data online.  Another option would be to generalize the problem 1a above.  For example, what if you wrote a function that takes the air csv and given a series of arguments, summarizes it for any time step and any variable then returns a table and a figure for up to date data?  This could also be an R-Shiny._
 
 ### 2) Data Sources:
 a. Data is collected directly from the site and located within this repo.
@@ -38,12 +38,12 @@ I have learned it is necessary to use as.POSIXct() for dealing with date and tim
 [POSIXct Data/Time Formatting](https://www.rdocumentation.org/packages/base/versions/3.5.1/topics/as.POSIX*)
 
 ## Expected Products:
-I expect that at the end of this project I will have a .csv file with the daily and bi-weekly sums for precipitation and solar irradiance as well as files containing the daily means for temperature, relative humidity, and wind speed.  
+I expect that at the end of this project I will have a .csv file with the daily and bi-weekly sums for precipitation and solar irradiance as well as files containing the daily means for temperature, relative humidity, and wind speed. _As you move forward, you may begin to see these 'products' as disposable - the real product is the script that will produce tables, flatfiles or figures_ 
 
 ## Questions for instructor:
-Are there other packages and functions that I should be exploring? I know you mentioned something about tidyr, but that isn't used for aggregation. Perhaps I can use it to tidy the data prior to my other work?
+Are there other packages and functions that I should be exploring? I know you mentioned something about tidyr, but that isn't used for aggregation. Perhaps I can use it to tidy the data prior to my other work? _aggregate is the base R implementation you need!_
 
-When we were working in the shell we used variables and then would bash with the desired input. I would like to do that with my code if possible. So that would be bashing through R? This part is a little unclear for me still.
+When we were working in the shell we used variables and then would bash with the desired input. I would like to do that with my code if possible. So that would be bashing through R? This part is a little unclear for me still. _this is what we call a 'function' in R.  All the commands we use in R are acutally functions.  We will learn to write our own soon._
 
 ## CODE To-Date (10-25-2018):
 #Weather Station Data summarization
