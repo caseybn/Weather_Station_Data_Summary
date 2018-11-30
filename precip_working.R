@@ -1,13 +1,12 @@
 #Weather Station Data
 rm(list=ls())
 
-library(zoo)
 library(ggplot2)
 library(plyr) #load plyr first to reduce problems when running dplyr
 library(dplyr)
 
 
-Precip<-read.csv("N:/Weather_Station/Weather_Station_Data_Summary/DATA/Precip_9-22-18_2018.csv")[,1:3] #reads in Precip, excludes columns with datalogger info but no data
+Precip<-read.csv("DATA/Precip_9-22-18_2018.csv")[,1:3] #reads in Precip, excludes columns with datalogger info but no data
 head(Precip)
 nrow(Precip)
 Precip <- Precip[4:10212,] #excludes rows with datalogger information
