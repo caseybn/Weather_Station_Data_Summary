@@ -7,6 +7,6 @@ CR6_Function <- function(climate_variable){
       print("not")
     }
   }
-}
+
     
     
