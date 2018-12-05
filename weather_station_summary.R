@@ -4,14 +4,18 @@ rm(list=ls())
 #Create a vector of files to be summarized
 files <- list.files("./DATA")
 
+#Sets source for function
 source("CR6_Function.R")
 
-for (file_name in files){
-  
-  }
+#applies function across list of desired files 
+lapply(files, my_station_function)
 
-results <- lapply(files, CR6_Function)
-as.data.frame(do.call(rbind, results))
+#creates a list of summarized files to be graphed
+to_graph <- list.files("./DATA", pattern = "biweekly")
 
-assign(paste0(file_name), climate_sum)
-matrix_list <- ls(pattern="summary") #creates a vector of all matrices ran through the recoding loop
+#loop to read in files to be graphed 
+for (i in 1:length(to_graph)){
+  assign(to_graph[i],
+         read.csv(paste0(to_graph[i], sep=''))[,-2]
+   )}
+   
