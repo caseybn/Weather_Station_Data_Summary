@@ -12,6 +12,7 @@ lapply(files, my_station_function)
 
 #creates a list of summarized files to be graphed
 to_graph <- list.files("./DATA", pattern = "biweekly")
+do.call(cbind,lapply(to_graph, function(x) x[]))
 
 #loop to read in files to be graphed 
 for (i in 1:length(to_graph)){
@@ -19,3 +20,4 @@ for (i in 1:length(to_graph)){
          read.csv(paste0(to_graph[i], sep=''))[,-2]
    )}
    
+graph <- cbind()
