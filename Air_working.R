@@ -6,9 +6,10 @@ library(ggplot2)
 library(ggthemes)
 
 #reads in Precip, excludes columns with datalogger info but no data
-air <- read.csv("DATA/air_9-22-18_2018.csv")[,1:4] 
+air <- read.csv("DATA/air_9-22-18_2018.csv", header = FALSE)
+
 #excludes rows with datalogger information. Use head() and nrow() to determine range
-air <- air[4:1704, -2] 
+air <- air[-c(1, 3, 4),] 
 
 #Renaming columns to something meaningful
 names(air)[colnames(air)=="TOA5"] <- "Date_Time"
@@ -18,7 +19,7 @@ names(air)[colnames(air)=="X3767"] <- "RH"
 #Create simple date column where time is not included
 air$date <- as.Date(air$Date_Time)
 
-#converts Temp and RH column from character to number
+#converts Temp and RH column from character to number while keeping values true 
 air$Temp <- as.numeric(as.character(air$Temp))
 air$RH <- as.numeric(as.character(air$RH)) 
 
@@ -36,6 +37,7 @@ by_biweek <- by_day %>% group_by(biwe) %>% summarise(t_mean = mean(t_mean),RH_me
 
 write.csv(by_biweek, file = "Air_biweekly_means.csv")
 
+#create a loop to graph different variables 
 graph <- ggplot(by_day, aes(date, t_mean)) +
   geom_line(na.rm = TRUE, color="blue", size=1)+
   geom_point(na.rm = TRUE, color="darkblue", size=2)+

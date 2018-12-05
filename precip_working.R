@@ -1,10 +1,10 @@
 #Weather Station Data
 rm(list=ls())
 
+#Create a vector of files to be summarized
+files <- list.files("./DATA")
  
-
-
-Precip<-read.csv("DATA/Precip_9-22-18_2018.csv")[,1:3] #reads in Precip, excludes columns with datalogger info but no data
+Precip<-read.csv("DATA/Precip.csv", header = FALSE)[,1:3] #reads in Precip, excludes columns with datalogger info but no data
 Precip <- Precip[4:10212, -2] #excludes rows with datalogger information
 
 
