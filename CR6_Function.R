@@ -6,16 +6,17 @@ my_station_function <- function(climate_var){
     names(climate_sum)[colnames(climate_sum)=="V3"] <- "Precip"
     climate_sum$Precip <- as.numeric(as.character(climate_sum$Precip))
     by_day <- climate_sum %>% group_by(Date) %>% summarise(p_sum = sum(Precip))
-    write.csv(by_day, file = "DATA/Temp_daily_mean.csv")
     bi_seq <- (rep(seq(1:ceiling(nrow(by_day)/14)), each=14))[-(73:84)]
     by_day$biwe <- bi_seq
     by_biweek <- by_day %>% group_by(biwe) %>% summarise(p_sum_mm = sum(p_sum))
     write.csv(by_biweek, file = "DATA/Precip_biweekly_sums.csv")
-    return(by_biweek)
+    return(by_day)
+    
   } else if(climate_var == "Air.csv"){
       names(climate_sum)[colnames(climate_sum)=="V3"] <- "Temp"
       climate_sum$Temp <- as.numeric(as.character(climate_sum$Temp))
       by_day <- climate_sum %>% group_by(Date) %>% summarise(T_mean = mean(Temp))
+      write.csv(by_day, file = "DATA/Temp_daily_mean.csv")
       bi_seq <- (rep(seq(1:ceiling(nrow(by_day)/14)), each=14))[-(73:84)]
       by_day$biwe <- bi_seq
       by_biweek <- by_day %>% group_by(biwe) %>% summarise(T_mean_C = mean(T_mean))
@@ -51,5 +52,4 @@ my_station_function <- function(climate_var){
     }
   }
 
-output <-     
     

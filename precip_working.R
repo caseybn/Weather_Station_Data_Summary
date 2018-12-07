@@ -39,7 +39,12 @@ DailyPrecip <- graph + theme_classic()
 
 
 
-
+#do.call(cbind,lapply(to_graph, function(x) x[]))
+#loop to read in files to be graphed 
+for (i in 1:length(to_graph)){
+  assign(to_graph[i],
+         read.csv(paste0(to_graph[i], sep=''))[,-2]
+  )}
 
 
 
