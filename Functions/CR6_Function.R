@@ -11,6 +11,7 @@ my_station_function <- function(climate_var){
     by_day$biwe <- bi_seq
     by_biweek <- by_day %>% group_by(biwe) %>% summarise(p_sum_mm = sum(p_sum))
     write.csv(by_biweek, file = "DATA/Sum/Precip_biweekly_sums.csv")
+    assign("Precip_daily", by_day[,-3], envir = .GlobalEnv)
   } else if(climate_var == "Air.csv"){
     names(climate_sum)[colnames(climate_sum)=="V3"] <- "Temp"
     climate_sum$Temp <- as.numeric(as.character(climate_sum$Temp))
@@ -20,6 +21,7 @@ my_station_function <- function(climate_var){
     by_day$biwe <- bi_seq
     by_biweek <- by_day %>% group_by(biwe) %>% summarise(T_mean_C = mean(T_mean))
     write.csv(by_biweek, file = "DATA/Sum/Temp_biweekly_mean.csv")
+    assign("Temp_daily", by_day[,-3], envir = .GlobalEnv)
   } else if(climate_var == "Air2.csv"){
     names(climate_sum)[colnames(climate_sum)=="V3"] <- "RH"
     climate_sum$RH <- as.numeric(as.character(climate_sum$RH))
@@ -29,6 +31,7 @@ my_station_function <- function(climate_var){
     by_day$biwe <- bi_seq
     by_biweek <- by_day %>% group_by(biwe) %>% summarise(RH_mean = mean(RH_mean))
     write.csv(by_biweek, file = "DATA/Sum/RH_biweekly_mean.csv")
+    assign("RH_daily", by_day[,-3], envir = .GlobalEnv)
   } else if(climate_var == "Sun.csv"){
     names(climate_sum)[colnames(climate_sum)=="V8"] <- "Solar"
     climate_sum$Solar <- as.numeric(as.character(climate_sum$Solar))
@@ -38,6 +41,7 @@ my_station_function <- function(climate_var){
     by_day$biwe <- bi_seq
     by_biweek <- by_day %>% group_by(biwe) %>% summarise(s_sum = sum(s_sum))
     write.csv(by_biweek, file = "DATA/Sum/Solar_biweekly_Sums.csv")
+    assign("Sun_daily", by_day[,-3], envir = .GlobalEnv)
   } else if (climate_var == "Wind.csv"){
     names(climate_sum)[colnames(climate_sum)=="V3"] <- "WS"
     climate_sum$WS <- as.numeric(as.character(climate_sum$WS))
@@ -47,7 +51,7 @@ my_station_function <- function(climate_var){
     by_day$biwe <- bi_seq
     by_biweek <- by_day %>% group_by(biwe) %>% summarise(WS_mean = mean(WS_mean))
     write.csv(by_biweek, file = "DATA/Sum/WindSpeed_biweekly_mean.csv")
+    assign("Wind_daily", by_day[,-3], envir = .GlobalEnv)
   }
-to_graph <- assign(paste0(climate_var, "_by_day"), by_day[,-3], envir = .GlobalEnv)
 }
     
