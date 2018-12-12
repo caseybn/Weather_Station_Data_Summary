@@ -1,6 +1,8 @@
 #Weather Station Data
 rm(list=ls())
 
+library(dplyr)
+
 #Create a vector of files to be summarized
 files <- list.files("./DATA")
 
@@ -20,4 +22,3 @@ for (i in 1:length(to_graph)){
          read.csv(paste0(to_graph[i], sep=''))[,-2]
    )}
    
-graph <- cbind()
