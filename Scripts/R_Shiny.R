@@ -1,12 +1,52 @@
-# Define UI for miles per gallon app ----
-ui <- pageWithSidebar(
+# Define UI for weather station app
+ui <- fluidPage(
   
-  # App title ----
-  headerPanel("Elizabeth Woods Weather Station"),
+  # App title 
+  titlePanel("Elizabeth Woods Weather Station"),
   
-  # Sidebar panel for inputs ----
-  sidebarPanel(),
+  # Sidebar layout with input and output definitions
+  sidebarLayout(
+    
+  # Sidebar panel for inputs
+  sidebarPanel(
+    #select variables to plot against Date
+    selectInput("variable","Variable:",
+                c("Temperature" = "T_mean",
+                  "Preciptation" = "p_sum",
+                  "Relative Humidity" = "RH_mean",
+                  "Solar" = "s_sum",
+                  "Wind" = "WS_mean")),
+    
+    # Input: Checkbox for whether outliers should be included
+    checkboxInput("outliers", "Show outliers", TRUE)
+  ),
   
-  # Main panel for displaying outputs ----
-  mainPanel()
+  # Main panel for displaying outputs
+  mainPanel(
+    # Output: Formatted text for caption
+    h3(textOutput("caption")),
+    
+    # Output: Plot of the requested variable against Date
+    plotOutput("Weather Station Plot")
+  )
 )
+)
+
+# Define server logic to plot various variables against Date----
+server <- function(input, output) {
+  formulaText <- reactive({
+    paste("Date ~", input$variable)
+  })
+output$caption <-renderText({
+  formulaText()
+})
+
+output$DatePlot <- renderPlot({
+  plot(as.formula(formulaText()))
+  data = "./DATA/Weather_station_summary"
+  })
+}
+
+shinyApp(ui, server)
+
+#runApp("~/shinyapp") #run the app
