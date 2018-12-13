@@ -95,11 +95,11 @@ plot(type = "l", graph$Date, graph$WS_mean, main="Average Daily Wind Speed", yla
 **Image 3** Visual representation of different variables throughout the 2018 growing season
 
 ### Challenges
-1. Grouping by date is difficult. It is first necessary to convert the Date-Time to just date, and then group by day.
+- Grouping by date is difficult. It is first necessary to convert the Date-Time to just date, and then group by day.
   ```R
   climate_sum$Date <- as.Date(climate_sum$Date_Time)
   ```
-1. The grouping by date challenges make summarizing by by-weekly more difficult. The function to complete this process is complex as each piece builds off the next piece. 
+- The grouping by date challenges make summarizing by by-weekly more difficult. The function to complete this process is complex as each piece builds off the next piece. 
 ```R 
 my_station_function <- function(climate_var){
   climate_sum <- read.csv2(file= paste0("DATA/Raw/", climate_var), header = FALSE, sep = ",", skip = 4) #reads in .csv files, excluding the first 4 lines of datalogger info
@@ -117,8 +117,8 @@ my_station_function <- function(climate_var){
     assign("Precip_daily", by_day[,-3], envir = .GlobalEnv) #assign daily values dataframe to the global environment for graphing 
   } else if... #unique for each variable.
   ```
-1. It is necessary to rid the files of the logger information stored within the first 4 rows to complete the necessary summarizations. This makes it diffcult to accurately label the column headers without great attention to detail during the "clean-up" process. 
-1. I had to include .csv in the function as I could not sucessfully remove it from the list without breaking the connection to the data itself. 
+- It is necessary to rid the files of the logger information stored within the first 4 rows to complete the necessary summarizations. This makes it diffcult to accurately label the column headers without great attention to detail during the "clean-up" process. 
+- I had to include .csv in the function as I could not sucessfully remove it from the list without breaking the connection to the data itself. 
 
 #### Resources utilized:
 [dplyr: summarise, group by, etc.](https://bookdown.org/ndphillips/YaRrr/dplyr.html)
