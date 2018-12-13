@@ -41,7 +41,7 @@ e. Data output is "messy" with various logger information included and data coll
 **Picture 2**: An example of pre-processed, raw data. Headers vary from one file to the next as well as number of records, and number of columns with logger information included.  
 
 ### 3) Getting Start
-It is necesary to install the following packages by "install.package()":
+Most of the script is completed using baseR or dpylr. Shiny and shinydashboard are incorportated to bring the data online. It is necesary to install the following packages by "install.package()":
 
 -"dplyr"
 
@@ -88,11 +88,32 @@ plot(type = "l", graph$Date, graph$T_mean, main="Average Daily Temperature", yla
 plot(type = "l", graph$Date, graph$RH_mean, main="Average Daily Relative Humidity", ylab = "Relative Humidity(%))", xlab = "Date")
 plot(type = "l", graph$Date, graph$WS_mean, main="Average Daily Wind Speed", ylab = "Wind Speed (m/s)", xlab = "Date")
 ```
+- Example of graphing outputs
+![alt text](https://github.com/caseybn/Weather_Station_Data_Summary/blob/master/Pictures/Station_Daily_Graphs.png)
 
 ## Challenges
 1. Grouping by date is difficult. It is first necessary to convert the Date-Time to just date, and then group by day.
   ```R  climate_sum$Date <- as.Date(climate_sum$Date_Time)```
-1. It is necessary to rid the files of the logger information stored within the first 4 rows. This makes it diffcult to accurately label the column headers without great attention to 
+1. The grouping by date challenges make summarizing by by-weekly more difficult. The function to complete this process is complex as each piece builds off the next piece. 
+```R 
+my_station_function <- function(climate_var){
+  climate_sum <- read.csv2(file= paste0("DATA/Raw/", climate_var), header = FALSE, sep = ",", skip = 4)
+  names(climate_sum)[colnames(climate_sum)=="V1"] <- "Date_Time"
+  climate_sum$Date <- as.Date(climate_sum$Date_Time)
+  if (climate_var == "Precip.csv") {
+    names(climate_sum)[colnames(climate_sum)=="V3"] <- "Precip"
+    climate_sum$Precip <- as.numeric(as.character(climate_sum$Precip))
+    by_day <- climate_sum %>% group_by(Date) %>% summarise(p_sum = sum(Precip))
+    write.csv(by_day, file = "DATA/Sum/Precip_daily_sums.csv")
+    bi_seq <- (rep(seq(1:ceiling(nrow(by_day)/14)), each=14))[-(73:84)]
+    by_day$biwe <- bi_seq
+    by_biweek <- by_day %>% group_by(biwe) %>% summarise(p_sum_mm = sum(p_sum))
+    write.csv(by_biweek, file = "DATA/Sum/Precip_biweekly_sums.csv")
+    assign("Precip_daily", by_day[,-3], envir = .GlobalEnv)
+  } else if...
+  ```
+1. It is necessary to rid the files of the logger information stored within the first 4 rows to complete the necessary summarizations. This makes it diffcult to accurately label the column headers without great attention to detail during the "clean-up" process. 
+
 ## CODE To-Date (10-25-2018):
 #Weather Station Data summarization
 
