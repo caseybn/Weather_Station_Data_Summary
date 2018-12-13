@@ -97,25 +97,23 @@ plot(type = "l", graph$Date, graph$WS_mean, main="Average Daily Wind Speed", yla
 1. The grouping by date challenges make summarizing by by-weekly more difficult. The function to complete this process is complex as each piece builds off the next piece. 
 ```R 
 my_station_function <- function(climate_var){
-  climate_sum <- read.csv2(file= paste0("DATA/Raw/", climate_var), header = FALSE, sep = ",", skip = 4)
-  names(climate_sum)[colnames(climate_sum)=="V1"] <- "Date_Time"
-  climate_sum$Date <- as.Date(climate_sum$Date_Time)
-  if (climate_var == "Precip.csv") {
-    names(climate_sum)[colnames(climate_sum)=="V3"] <- "Precip"
-    climate_sum$Precip <- as.numeric(as.character(climate_sum$Precip))
-    by_day <- climate_sum %>% group_by(Date) %>% summarise(p_sum = sum(Precip))
-    write.csv(by_day, file = "DATA/Sum/Precip_daily_sums.csv")
-    bi_seq <- (rep(seq(1:ceiling(nrow(by_day)/14)), each=14))[-(73:84)]
-    by_day$biwe <- bi_seq
-    by_biweek <- by_day %>% group_by(biwe) %>% summarise(p_sum_mm = sum(p_sum))
-    write.csv(by_biweek, file = "DATA/Sum/Precip_biweekly_sums.csv")
-    assign("Precip_daily", by_day[,-3], envir = .GlobalEnv)
-  } else if...
+  climate_sum <- read.csv2(file= paste0("DATA/Raw/", climate_var), header = FALSE, sep = ",", skip = 4) #reads in .csv files, excluding the first 4 lines of datalogger info
+  names(climate_sum)[colnames(climate_sum)=="V1"] <- "Date_Time" #renames appropriate column including the "Date_Time"
+  climate_sum$Date <- as.Date(climate_sum$Date_Time) #creates column containing only the date with no time
+  if (climate_var == "Precip.csv") { #if the variable is precip...
+    names(climate_sum)[colnames(climate_sum)=="V3"] <- "Precip" #names appropriate column precipitation 
+    climate_sum$Precip <- as.numeric(as.character(climate_sum$Precip)) # converts the precip column to numeric while maintaining its value for summarization
+    by_day <- climate_sum %>% group_by(Date) %>% summarise(p_sum = sum(Precip)) #sum of precip by day
+    write.csv(by_day, file = "DATA/Sum/Precip_daily_sums.csv") #writing results out for sharing
+    bi_seq <- (rep(seq(1:ceiling(nrow(by_day)/14)), each=14))[-(73:84)] #biweekly sequence, created from the number of rows and excluding the portion of the sequence without a data record
+    by_day$biwe <- bi_seq #adding the sequence as a new column in the daily summary dataframe
+    by_biweek <- by_day %>% group_by(biwe) %>% summarise(p_sum_mm = sum(p_sum)) #by-weekly sum of precip using sequence
+    write.csv(by_biweek, file = "DATA/Sum/Precip_biweekly_sums.csv") #write results out for sharing
+    assign("Precip_daily", by_day[,-3], envir = .GlobalEnv) #assign daily values dataframe to the global environment for graphing 
+  } else if... #unique for each variable.
   ```
 1. It is necessary to rid the files of the logger information stored within the first 4 rows to complete the necessary summarizations. This makes it diffcult to accurately label the column headers without great attention to detail during the "clean-up" process. 
-
-## CODE To-Date (10-25-2018):
-#Weather Station Data summarization
+1. I had to include .csv in the function as I could not sucessfully remove it from the list without breaking the connection to the data itself. 
 
 #### Resources utilized:
 
