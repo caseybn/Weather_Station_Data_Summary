@@ -42,8 +42,11 @@ e. Data output is "messy" with various logger information included and data coll
 
 ### 3) Getting Start
 It is necesary to install the following packages by "install.package()":
+
 -"dplyr"
+
 -"shiny"
+
 -"shinydashboard"
 
 ## 4) Implementation:
