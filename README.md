@@ -16,17 +16,17 @@
 For my thesis I am attempting to include species specific impacts on water balance modeling by identifying species differences in water management strategies at the crown level. Leveraging an existing 50-100% throughfall exclusion (Tfe) experiment, as well as strategically placed time-lapse cameras and light sensors, I will measure species specific crown architecture and light attenuation to develop crown-integrated solar radiation terms for water balance modeling. My hope is to improve water balance modeling accuracy at Elizabeth Wood’s, located south of Morgantown, WV, by incorporating measured light attenuation and solar radiation terms relative to individual species to into a dynamic water balance model method.  
 
 ## Purpose of this script:
-Water balance models account for both factors of supply and demand by incorporating climatic, topographic, and edaphic variables. To collect relevant climatic data, I have set up a weather station in an open field north of my study plots South of Morgantown, WV (**Picture 1**). This station utilizes LOGGERNET technology to store data for download including precipitation, temperature, wind speed, relative humidity, and solar radiation. The output format is comma-separated values.
+Water balance models account for both factors of supply and demand by incorporating climatic, topographic, and edaphic variables. To collect relevant climatic data, I have set up a weather station in an open field north of my study plots South of Morgantown, WV (**Image 1**). This station utilizes LOGGERNET technology to store data for download including precipitation, temperature, wind speed, relative humidity, and solar radiation. The output format is comma-separated values.
 
 ![alt text](https://github.com/caseybn/Weather_Station_Data_Summary/blob/master/Pictures/Weather_Station.jpg)
-**Picture 1**: Setting up the weather station during what turned out to be "normal" weather conditions this season. 
+**Image 1**: Setting up the weather station during what turned out to be "normal" weather conditions this season. 
 
 ### 1) Objectives:
 a. To automate the clean-up and summarization process of data collected daily at Elizabeth Woods in preparation for use in a water balance model. Summaries necessary include daily averages and daily sums. I have chosen to run my water balance model on a bi-weekly timestep it will also be necessary to obtain bi-weekly sums and averages as well.  
 
 b. Output visuals to display changes in weather conditions throughout the growing season
 
-c. Produce a "Shiny" interface to include online, interactive comparisons of climatic data collected at Elizabeth Woods. Find a way to link this to the live weather station data.
+c. **IN PROGRESS** Produce a "Shiny" interface to include online, interactive comparisons of climatic data collected at Elizabeth Woods. Find a way to link this to the live weather station data.
 
 ### 2) Data Sources:
 a. Data is collected directly from the site and located within this repo.
@@ -38,9 +38,9 @@ c. Data is in .csv format with one file containing all the season's data. Data w
 
 d. All data was collected between 13 July 2018 through 22 September 2018
 
-e. Data output is "messy" with various logger information included and data collected for other collaborators but not necessary for my model (**Picture 2**), data headers also vary greatly and with little consistency within the reported data. 
+e. Data output is "messy" with various logger information included and data collected for other collaborators but not necessary for my model (**Image 2**), data headers also vary greatly and with little consistency within the reported data. 
 ![alt text](https://github.com/caseybn/Weather_Station_Data_Summary/blob/master/Pictures/Messy_data_example.PNG)
-**Picture 2**: An example of pre-processed, raw data. Headers vary from one file to the next as well as number of records, and number of columns with logger information included.  
+**Image 2**: An example of pre-processed, raw data. Headers vary from one file to the next as well as number of records, and number of columns with logger information included.  
 
 
 ## 3) Implementation:
@@ -92,6 +92,7 @@ plot(type = "l", graph$Date, graph$WS_mean, main="Average Daily Wind Speed", yla
 ```
 - Example of graphing outputs
 ![alt text](https://github.com/caseybn/Weather_Station_Data_Summary/blob/master/Pictures/Station_Daily_Graphs.png)
+**Image 3** Visual representation of different variables throughout the 2018 growing season
 
 ### Challenges
 1. Grouping by date is difficult. It is first necessary to convert the Date-Time to just date, and then group by day.
@@ -120,6 +121,11 @@ my_station_function <- function(climate_var){
 1. I had to include .csv in the function as I could not sucessfully remove it from the list without breaking the connection to the data itself. 
 
 #### Resources utilized:
+[dplyr: summarise, group by, etc.](https://bookdown.org/ndphillips/YaRrr/dplyr.html)
+[Overall R help](ttps://r4ds.had.co.nz/introduction.html)
+[Shiny Tutorial](http://rstudio.github.io/shiny/tutorial/#welcome)
+[Shiny Basics](https://shiny.rstudio.com/articles/basics.html)
+[Shiny Build](https://shiny.rstudio.com/articles/build.html)
 
 #### Acknowledgements: 
 Luis Andres Guillen and Nanette Raczka, my co-workesr on the Elizabeth Woods TfE experiment, as well as our advisors Dr. Brenden McNeil, Dr. Nicolas Zegre, and Dr. Edward Brzostek. Also, Dr. Amy Hessl for her un-paralleled patience in this learning process.    
