@@ -26,7 +26,7 @@ a. To automate the clean-up and summarization process of data collected daily at
 
 b. Output visuals to display changes in weather conditions throughout the growing season
 
-c. **IN PROGRESS** Produce a "Shiny" interface to include online, interactive comparisons of climatic data collected at Elizabeth Woods. Find a way to link this to the live weather station data.
+c. **IN PROGRESS** ~~Produce a "Shiny" interface to include online, interactive comparisons of climatic data collected at Elizabeth Woods. Find a way to link this to the live weather station data.~~ Note: in the future I hope to get this working. The skill is currently over my head and time to learn to limited for the deadline of this project. This would be useful to produce interactive comparisions of data throughout the years. 
 
 ### 2) Data Sources:
 a. Data is collected directly from the site and located within this repo.
@@ -44,6 +44,7 @@ e. Data output is "messy" with various logger information included and data coll
 
 
 ## 3) Implementation:
+This code should be ran through the Weather_Station_Data_Summary RProject. Data for summarization is stored in th "Raw" folder within the "Data" folder. Outputs are designed to be sent to the "sum" folder.
 
 ### Getting Start
 Most of the script is completed using baseR or dpylr. Shiny and shinydashboard are incorportated to bring the data online. It is necesary to install the following packages by "install.package()":
@@ -122,9 +123,13 @@ my_station_function <- function(climate_var){
 
 #### Resources utilized:
 [dplyr: summarise, group by, etc.](https://bookdown.org/ndphillips/YaRrr/dplyr.html)
+
 [Overall R help](ttps://r4ds.had.co.nz/introduction.html)
+
 [Shiny Tutorial](http://rstudio.github.io/shiny/tutorial/#welcome)
+
 [Shiny Basics](https://shiny.rstudio.com/articles/basics.html)
+
 [Shiny Build](https://shiny.rstudio.com/articles/build.html)
 
 #### Acknowledgements: 
