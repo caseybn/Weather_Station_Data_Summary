@@ -38,6 +38,7 @@ d. All data was collected between 13 July 2018 through 22 September 2018
 
 e. Data output is "messy" with various logger information included and data collected for other collaborators but not necessary for my model (**Picture 2**), data headers also vary greatly and with little consistency within the reported data. 
 ![alt text](https://github.com/caseybn/Weather_Station_Data_Summary/blob/master/Pictures/Messy_data_example.PNG)
+**Picture 2**: An example of pre-processed, raw data. Headers vary from one file to the next as well as number of records, and number of columns with logger information included.  
 
 ### 3) Getting Start
 It is necesary to install the following packages by "install.package()":
@@ -50,7 +51,7 @@ It is necesary to install the following packages by "install.package()":
 ## Products:
 - A .csv file with the daily and bi-weekly summaries for precipitation and solar irradiance as well the daily and biweekly means for temperature, relative humidity, and wind speed. These were produced soley for data exchange.
 - A script that can be used to update weather station summaries in the future and generate tables and graphs for use in modeling
-'''R
+```R
 #Weather Station Data
 
 #Clears environment
@@ -83,13 +84,11 @@ plot(type = "l", graph$Date, graph$s_sum, main="Daily Solar Radiation", ylab = "
 plot(type = "l", graph$Date, graph$T_mean, main="Average Daily Temperature", ylab = "Temperature(°C)", xlab = "Date")
 plot(type = "l", graph$Date, graph$RH_mean, main="Average Daily Relative Humidity", ylab = "Relative Humidity(%))", xlab = "Date")
 plot(type = "l", graph$Date, graph$WS_mean, main="Average Daily Wind Speed", ylab = "Wind Speed (m/s)", xlab = "Date")
-'''
+```
 
 ## Challenges
 1. Grouping by date is difficult. It is first necessary to convert the Date-Time to just date, and then group by day.
-  ''' R
-  climate_sum$Date <- as.Date(climate_sum$Date_Time)
-  '''
+  ```R  climate_sum$Date <- as.Date(climate_sum$Date_Time)```
 1. It is necessary to rid the files of the logger information stored within the first 4 rows. This makes it diffcult to accurately label the column headers without great attention to 
 ## CODE To-Date (10-25-2018):
 #Weather Station Data summarization
