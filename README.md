@@ -93,7 +93,9 @@ plot(type = "l", graph$Date, graph$WS_mean, main="Average Daily Wind Speed", yla
 
 ## Challenges
 1. Grouping by date is difficult. It is first necessary to convert the Date-Time to just date, and then group by day.
-  ```R  climate_sum$Date <- as.Date(climate_sum$Date_Time)```
+  ```R
+  climate_sum$Date <- as.Date(climate_sum$Date_Time)
+  ```
 1. The grouping by date challenges make summarizing by by-weekly more difficult. The function to complete this process is complex as each piece builds off the next piece. 
 ```R 
 my_station_function <- function(climate_var){
