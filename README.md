@@ -5,8 +5,8 @@
 - Weather Station code purpose/ rationale 
   - Objectives
   - Data Sources
-  - Getting Started 
 - Implementation
+  - Getting Started 
   - Products
   - Challenges
 - Resources
@@ -42,7 +42,10 @@ e. Data output is "messy" with various logger information included and data coll
 ![alt text](https://github.com/caseybn/Weather_Station_Data_Summary/blob/master/Pictures/Messy_data_example.PNG)
 **Picture 2**: An example of pre-processed, raw data. Headers vary from one file to the next as well as number of records, and number of columns with logger information included.  
 
-### 3) Getting Start
+
+## 3) Implementation:
+
+### Getting Start
 Most of the script is completed using baseR or dpylr. Shiny and shinydashboard are incorportated to bring the data online. It is necesary to install the following packages by "install.package()":
 
 -"dplyr"
@@ -50,10 +53,7 @@ Most of the script is completed using baseR or dpylr. Shiny and shinydashboard a
 -"shiny"
 
 -"shinydashboard"
-
-## 4) Implementation:
-
-## Products:
+### Products:
 - A .csv file with the daily and bi-weekly summaries for precipitation and solar irradiance as well the daily and biweekly means for temperature, relative humidity, and wind speed. These were produced soley for data exchange.
 - A script that can be used to update weather station summaries in the future and generate tables and graphs for use in modeling
 ```R
@@ -93,7 +93,7 @@ plot(type = "l", graph$Date, graph$WS_mean, main="Average Daily Wind Speed", yla
 - Example of graphing outputs
 ![alt text](https://github.com/caseybn/Weather_Station_Data_Summary/blob/master/Pictures/Station_Daily_Graphs.png)
 
-## Challenges
+### Challenges
 1. Grouping by date is difficult. It is first necessary to convert the Date-Time to just date, and then group by day.
   ```R
   climate_sum$Date <- as.Date(climate_sum$Date_Time)
@@ -121,5 +121,5 @@ my_station_function <- function(climate_var){
 
 #### Resources utilized:
 
-### Acknowledgements: 
+#### Acknowledgements: 
 Luis Andres Guillen and Nanette Raczka, my co-workesr on the Elizabeth Woods TfE experiment, as well as our advisors Dr. Brenden McNeil, Dr. Nicolas Zegre, and Dr. Edward Brzostek. Also, Dr. Amy Hessl for her un-paralleled patience in this learning process.    
