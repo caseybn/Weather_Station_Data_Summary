@@ -26,7 +26,7 @@ a. To automate the clean-up and summarization process of data collected daily at
 
 b. Output visuals to display changes in weather conditions throughout the growing season
 
-c. **IN PROGRESS** ~~Produce a "Shiny" interface to include online, interactive comparisons of climatic data collected at Elizabeth Woods. Find a way to link this to the live weather station data.~~ Note: in the future I hope to get this working. The skill is currently over my head and time to learn to limited for the deadline of this project. This would be useful to produce interactive comparisions of data throughout the years. 
+c.  ~~Produce a "Shiny" interface to include online, interactive comparisons of climatic data collected at Elizabeth Woods. Find a way to link this to the live weather station data.~~ Note: in the future I hope to get this working. The skill required is currently over my head and time to learn limited for the deadline of this project. This would be useful to produce interactive comparisions of data throughout the years, especially since there is a desire to get the station online in real time. 
 
 ### 2) Data Sources:
 a. Data is collected directly from the site and located within this repo.
@@ -40,11 +40,11 @@ d. All data was collected between 13 July 2018 through 22 September 2018
 
 e. Data output is "messy" with various logger information included and data collected for other collaborators but not necessary for my model (**Image 2**), data headers also vary greatly and with little consistency within the reported data. 
 ![alt text](https://github.com/caseybn/Weather_Station_Data_Summary/blob/master/Pictures/Messy_data_example.PNG)
+
 **Image 2**: An example of pre-processed, raw data. Headers vary from one file to the next as well as number of records, and number of columns with logger information included.  
 
-
 ## 3) Implementation:
-This code should be ran through the Weather_Station_Data_Summary RProject. Data for summarization is stored in th "Raw" folder within the "Data" folder. Outputs are designed to be sent to the "sum" folder.
+This code should be ran through the Weather_Station_Data_Summary RProject. Data for summarization is stored in the "Raw" folder within the "Data" folder. Outputs are designed to be sent to the "sum" folder.
 
 ### Getting Start
 Most of the script is completed using baseR or dpylr. Shiny and shinydashboard are incorportated to bring the data online. It is necesary to install the following packages by "install.package()":
@@ -93,6 +93,7 @@ plot(type = "l", graph$Date, graph$WS_mean, main="Average Daily Wind Speed", yla
 ```
 - Example of graphing outputs
 ![alt text](https://github.com/caseybn/Weather_Station_Data_Summary/blob/master/Pictures/Station_Daily_Graphs.png)
+
 **Image 3** Visual representation of different variables throughout the 2018 growing season
 
 ### Challenges
@@ -122,6 +123,8 @@ my_station_function <- function(climate_var){
 - I had to include .csv in the function as I could not sucessfully remove it from the list without breaking the connection to the data itself. 
 
 #### Resources utilized:
+Just about all R lecture notes.
+
 [dplyr: summarise, group by, etc.](https://bookdown.org/ndphillips/YaRrr/dplyr.html)
 
 [Overall R help](ttps://r4ds.had.co.nz/introduction.html)
