@@ -26,7 +26,7 @@ a. To automate the clean-up and summarization process of data collected daily at
 
 b. Output visuals to display changes in weather conditions throughout the growing season
 
-c.  ~~Produce a "Shiny" interface to include online, interactive comparisons of climatic data collected at Elizabeth Woods. Find a way to link this to the live weather station data.~~ Note: in the future I hope to get this working. The skill required is currently over my head and time to learn limited for the deadline of this project. This would be useful to produce interactive comparisions of data throughout the years, especially since there is a desire to get the station online in real time. 
+c.  ~~Produce a "Shiny" interface to include online, interactive comparisons of climatic data collected at Elizabeth Woods. Find a way to link this to the live weather station data.~~ Note: I feel like I am very close here. I have not been able to get the graph to show up on the page yet. In the future I hope to get this working. The skill required is currently over my head and time to learn limited for the deadline of this project. This would be useful to produce interactive comparisions of data throughout the years, especially since there is a desire to get the station online in real time. 
 
 ### 2) Data Sources:
 a. Data is collected directly from the site and located within this repo.
@@ -127,7 +127,7 @@ Just about all R lecture notes.
 
 [dplyr: summarise, group by, etc.](https://bookdown.org/ndphillips/YaRrr/dplyr.html)
 
-[Overall R help](ttps://r4ds.had.co.nz/introduction.html)
+[Overall R help](https://r4ds.had.co.nz/introduction.html)
 
 [Shiny Tutorial](http://rstudio.github.io/shiny/tutorial/#welcome)
 
