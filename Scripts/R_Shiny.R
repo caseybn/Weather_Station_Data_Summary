@@ -16,7 +16,7 @@ ui <- fluidPage(
                   "Relative Humidity" = "RH_mean",
                   "Solar" = "s_sum",
                   "Wind" = "WS_mean")),
-    
+  
     # Input: Checkbox for whether outliers should be included
     checkboxInput("outliers", "Show outliers", TRUE)
   ),
@@ -42,8 +42,7 @@ output$caption <-renderText({
 })
 
 output$DatePlot <- renderPlot({
-  plot(as.formula(formulaText()))
-  data = "./DATA/Weather_station_summary"
+  plot_ly(graph, x = ~Date, y = ~p_sum)
   })
 }
 

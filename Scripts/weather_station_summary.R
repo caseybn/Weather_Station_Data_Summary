@@ -5,6 +5,7 @@ rm(list=ls())
 library(dplyr)
 library(shiny)
 library(shinydashboard)
+library(plotly)
 
 #Create a vector of files to be summarized
 files <- list.files("./DATA/Raw")
