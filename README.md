@@ -26,7 +26,7 @@ a. To automate the clean-up and summarization process of data collected daily at
 
 b. Output visuals to display changes in weather conditions throughout the growing season
 
-c.  ~~Produce a "Shiny" interface to include online, interactive comparisons of climatic data collected at Elizabeth Woods. Find a way to link this to the live weather station data.~~ Note: I feel like I am very close here. I have not been able to get the graph to show up on the page yet. In the future I hope to get this working. The skill required is currently over my head and time to learn limited for the deadline of this project. This would be useful to produce interactive comparisions of data throughout the years, especially since there is a desire to get the station online in real time. 
+c.  ~~Produce a "Shiny" interface to include online, interactive comparisons of climatic data collected at Elizabeth Woods. Find a way to link this to the live weather station data.~~ Note: I feel like I am very close here. I have not been able to get the graph to show up on the page yet. In the future I hope to get this working. The skill required is currently over my head and time to learn limited for the deadline of this project. This would be useful to produce interactive comparisions of data throughout the years, especially since there is a desire to get the station online in real time. You can still run the R_Shiny script and see what it does produce. 
 
 ### 2) Data Sources:
 a. Data is collected directly from the site and located within this repo.
@@ -49,11 +49,11 @@ This code should be ran through the Weather_Station_Data_Summary RProject. Data 
 ### Getting Start
 Most of the script is completed using baseR or dpylr. Shiny and shinydashboard are incorportated to bring the data online. It is necesary to install the following packages by "install.package()":
 
--"dplyr"
+- "dplyr"
+- "shiny"
+- "shinydashboard"
+- "plotly"
 
--"shiny"
-
--"shinydashboard"
 ### Products:
 - A .csv file with the daily and bi-weekly summaries for precipitation and solar irradiance as well the daily and biweekly means for temperature, relative humidity, and wind speed. These were produced soley for data exchange.
 - A script that can be used to update weather station summaries in the future and generate tables and graphs for use in modeling
@@ -67,6 +67,7 @@ rm(list=ls())
 library(dplyr)
 library(shiny)
 library(shinydashboard)
+library(plotly)
 
 #Create a vector of files to be summarized
 files <- list.files("./DATA/Raw")
